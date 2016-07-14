@@ -24,171 +24,44 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 //Player X will always start 1st and the alternating will be via player +1 -1
 //Still trying to clean this up by shortening it
 var player = 1;
+
 var card = document.getElementsByClassName('card');
 
 
-function disabled() {
-  for(i = 0; i < arraycards.length; i++){
-    if (arrayCards[i].innHTML === "X" || arraycards[i].innerHTML === "O"){
-      arrayCards[i].onclick = null;
-    }
-  }
-}
-//box 1
-one.onclick = function()  {
-if (player == 1) {
-document.getElementById('1').innerHTML = 'X';
-document.getElementById('1').style.background = "#CCFFFF";
-player = player - 1;
+for (var i = 0; i < 9; i++ ){
+card[i].addEventListener('click', function(){
+if (this.innerHTML === "" && player ===1) {
+this.innerHTML = 'X';
+this.style.background = "#CCFFFF";
+player = 2;
 match();
-disabled();
-}
-else {
-document.getElementById('1').innerHTML = 'O';
-document.getElementById('1').style.background = "#CCFFFF";
-player = player + 1;
-match();
-disabled();
-}
-};
 
-//box 2
-two.onclick = function()  {
-if (player == 1) {
-document.getElementById('2').innerHTML = 'X';
-document.getElementById('2').style.background = "#CCFFFF";
-player = player - 1;
+} else if (this.innerHTML === "" && player === 2) {
+this.innerHTML = 'O';
+this.style.background = "#CCFFFF";
+player = 1;
 match();
 }
-else {
-document.getElementById('2').innerHTML = 'O';
-document.getElementById('2').style.background = "#CCFFFF";
-player = player + 1;
-match();
-}
-};
 
-//box 3
-three.onclick = function()  {
-if (player == 1) {
-document.getElementById('3').innerHTML = 'X';
-document.getElementById('3').style.background = "#CCFFFF";
-player = player - 1;
-match();
+else {alert("This box has already been taken!");
 }
-else {
-document.getElementById('3').innerHTML = 'O';
-document.getElementById('3').style.background = "#CCFFFF";
-player = player + 1;
-match();
+});
 }
-};
 
-//box 4
-four.onclick = function()  {
-if (player == 1) {
-document.getElementById('4').innerHTML = 'X';
-document.getElementById('4').style.background = "#CCFFFF";
-player = player - 1;
-match();
-}
-else {
-document.getElementById('4').innerHTML = 'O';
-document.getElementById('4').style.background = "#CCFFFF";
-player = player + 1;
-match();
-}
-};
 
-//box 5
-five.onclick = function()  {
-if (player == 1) {
-document.getElementById('5').innerHTML = 'X';
-document.getElementById('5').style.background = "#CCFFFF";
-player = player - 1;
-match();
-}
-else {
-document.getElementById('5').innerHTML = 'O';
-document.getElementById('5').style.background = "#CCFFFF";
-player = player + 1;
-match();
-}
-};
 
-//box 6
-six.onclick = function()  {
-if (player == 1) {
-document.getElementById('6').innerHTML = 'X';
-document.getElementById('6').style.background = "#CCFFFF";
-player = player - 1;
-match();
-}
-else {
-document.getElementById('6').innerHTML = 'O';
-document.getElementById('6').style.background = "#CCFFFF";
-player = player + 1;
-match();
-}
-};
-
-//box 7
-seven.onclick = function()  {
-if (player == 1) {
-document.getElementById('7').innerHTML = 'X';
-document.getElementById('7').style.background = "#CCFFFF";
-player = player - 1;
-match();
-}
-else {
-document.getElementById('7').innerHTML = 'O';
-document.getElementById('7').style.background = "#CCFFFF";
-player = player + 1;
-match();
-}
-};
-
-//box 8
-eight.onclick = function()  {
-if (player == 1) {
-document.getElementById('8').innerHTML = 'X';
-document.getElementById('8').style.background = "#CCFFFF";
-player = player - 1;
-match();
-}
-else {
-document.getElementById('8').innerHTML = 'O';
-document.getElementById('8').style.background = "#CCFFFF";
-player = player + 1;
-match();
-}
-};
-
-//box 9
-nine.onclick = function()  {
-if (player == 1) {
-document.getElementById('9').innerHTML = 'X';
-document.getElementById('9').style.background = "#CCFFFF";
-player = player - 1;
-match();
-}
-else {
-document.getElementById('9').innerHTML = 'O';
-document.getElementById('9').style.background = "#CCFFFF";
-player = player + 1;
-match();
-}
-};
 
 
 //Reset Function
 function reset() {
- for(var i = 0; i < arrayCards.length; i++) {
- arrayCards[i].innerHTML=" ";
+  window.location.reload();
+/*var card = document.getElementsByClassName('card');
+ for(var i = 0; i < card.length; i++) {
+ card[i].innerHTML=" ";
  ret();
- arrayCards[i].style.background="white";
+ card[i].style.background="white";
 }
- console.log(alert("Hope you are enjoying the game! Try one more time!"));
+ console.log(alert("Hope you are enjoying the game! Try one more time!"));*/
 }
 
 button.addEventListener("click", reset);
@@ -225,15 +98,15 @@ var player2 = ["O", "O", "O"];*/
 
 //Results matching
 
-var one = document.getElementById('1');
-var two = document.getElementById('2');
-var three = document.getElementById('3');
-var four = document.getElementById('4');
-var five = document.getElementById('5');
-var six = document.getElementById('6');
-var seven = document.getElementById('7');
-var eight = document.getElementById('8');
-var nine = document.getElementById('9');
+var oneWinner = document.getElementById('1').innerHTML;
+var twoWinner = document.getElementById('2').innerHTML;
+var threeWinner = document.getElementById('3').innerHTML;
+var fourWinner = document.getElementById('4').innerHTML;
+var fiveWinner = document.getElementById('5').innerHTML;
+var sixWinner = document.getElementById('6').innerHTML;
+var sevenWinner = document.getElementById('7').innerHTML;
+var eightWinner = document.getElementById('8').innerHTML;
+var nineWinner = document.getElementById('9').innerHTML;
 
 //Will touch up further using arrys
 

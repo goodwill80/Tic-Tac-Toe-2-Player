@@ -24,36 +24,44 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 //Player X will always start 1st and the alternating will be via player +1 -1
 //Still trying to clean this up by shortening it
 var player = 1;
+
 var card = document.getElementsByClassName('card');
 
 
 for (var i = 0; i < 9; i++ ){
-
 card[i].addEventListener('click', function(){
-if (player == 1) {
+if (this.innerHTML === "" && player ===1) {
 this.innerHTML = 'X';
 this.style.background = "#CCFFFF";
-player = player - 1;
+player = 2;
 match();
-}
-else {
+
+} else if (this.innerHTML === "" && player === 2) {
 this.innerHTML = 'O';
 this.style.background = "#CCFFFF";
-player = player + 1;
+player = 1;
 match();
+}
+
+else {alert("This box has already been taken!");
 }
 });
 }
 
+
+
+
+
 //Reset Function
 function reset() {
-var card = document.getElementsByClassName('card');
+  window.location.reload();
+/*var card = document.getElementsByClassName('card');
  for(var i = 0; i < card.length; i++) {
  card[i].innerHTML=" ";
  ret();
  card[i].style.background="white";
 }
- console.log(alert("Hope you are enjoying the game! Try one more time!"));
+ console.log(alert("Hope you are enjoying the game! Try one more time!"));*/
 }
 
 button.addEventListener("click", reset);
